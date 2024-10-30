@@ -19,7 +19,7 @@ wire fifo_overflow;
 wire fifo_underflow;     
 integer i;               
 
-fifo_mem dut(/*AUTOARG*/  
+fifo_mem dut( 
     data_out, fifo_full, fifo_empty, fifo_threshold, fifo_overflow,   
     fifo_underflow,   
     clk, rst_n, wr, rd, data_in  
@@ -86,12 +86,7 @@ endtask
 
 task debug_fifo;  
     begin  
-        $display("----------------------------------------------");  
-        $display("------------------   -----------------------");  
-        $display("----------- SIMULATION RESULT ----------------");  
-        $display("--------------       -------------------");  
-        $display("----------------     ---------------------");  
-        $display("----------------------------------------------");  
+       
         $monitor("TIME = %d, wr = %b, rd = %b, data_in = %h", $time, wr, rd, data_in);  
     end  
 endtask  
@@ -99,7 +94,7 @@ endtask
 task endsimulation;  
     begin  
         #ENDTIME  
-        $display("-------------- THE SIMULATION FINISHED ------------");  
+        
         $finish;  
     end  
 endtask  
